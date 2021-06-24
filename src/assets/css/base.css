@@ -1,0 +1,23 @@
+body,html,#app{
+    height: 100%;
+    min-width: 320px;
+    max-width: 750px;
+    margin: 0 auto;
+}
+*{
+
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    line-height: 1.5;
+   font-family: -apple-system,Helvetica,sans-serif;
+    color: #666;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+input{
+    -webkit-appearance:none ;
+}
+img,a{
+    -webkit-touch-callout: none;
+}
