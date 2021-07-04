@@ -55,6 +55,7 @@ import song_list from '../common/song_list'
       song_list
     },
     async created () {
+      window.sessionStorage.setItem('token','秦')
       const res=(await pics()).data.data.songs
       for (let i=0;i<res.length;i++){
         this.songlist.push({id:res[i].id,name:res[i].name,pic:res[i].al.picUrl})

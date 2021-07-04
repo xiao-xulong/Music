@@ -58,9 +58,8 @@
     methods:{
       Jump(name){
         this.user_search_info=name
-        this. commit_flag=true
         this.search_song();
-
+        this. commit_flag=true
 
 
       },
@@ -81,12 +80,13 @@
         // }
         this.no_result_flag=false
         this.commit_flag=false
+        this.search_result=[]
       },
       clear(){
         this.user_search_info=''
         this.commit_flag=false
         this.no_result_flag=false
-
+      this.search_result=[]
       },
       play_music(id,name){
         this.$router.push({name:'Play_music',params:{id:id,name:name}})

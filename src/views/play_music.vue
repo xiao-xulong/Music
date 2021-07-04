@@ -59,15 +59,42 @@
   export default {
     name: 'play_music',
     async created () {
-      this.id=this.$route.params.id
-      this.name=this.$route.params.name
-      const info=(await PlayMusicInfo(this.id)).data.data
-      this.pic=info.songs[0].al.picUrl
+      // this.id=this.$route.params.id
+      // this.name=this.$route.params.name
+      let id_key=this.$route.params.id
+      const info=(await PlayMusicInfo(id_key)).data.data
 
-      this.singer=info.songs[0].ar[0].name
+
+      // this.pic=info.songs[0].al.picUrl
+      // this.singer=info.songs[0].ar[0].name
       console.log(info)
-      const result=(await url(this.id)).data.data
-      this.$refs.audio.src = result.url
+      const result=(await url(id_key)).data.data
+      // this.$refs.audio.src = result.url
+   if (info!=null){
+  let pic_key=info.songs[0].al.picUrl
+  let singer_key=info.songs[0].ar[0].name
+  let url_key=result.url
+  let songname_key=this.$route.params.name
+  let data= {id:id_key,pic: pic_key,singer:singer_key,url:url_key,name:songname_key}
+  window.sessionStorage.setItem('data',JSON.stringify(data))
+  let get_data=JSON.parse(window.sessionStorage.getItem('data'))
+  console.log(get_data)
+  this.$refs.audio.src =get_data.url
+  this.id=get_data.id
+  this.pic=get_data.pic
+  this.singer=get_data.singer
+  this.name=get_data.name
+}else {
+
+  let get_data=JSON.parse(window.sessionStorage.getItem('data'))
+  console.log(get_data)
+  this.$refs.audio.src =get_data.url
+  this.id=get_data.id
+  this.pic=get_data.pic
+  this.singer=get_data.singer
+  this.name=get_data.name
+     this.pause();
+}
 
     },
 
@@ -198,7 +225,9 @@
           this.$refs.footer.style.background='-webkit-linear-gradient(top,#22272b,#1c1d1e)'
           this.$refs.commit.style.color='#898b8d'
           this.$refs.child_view.style.top='100vh'
+
           setTimeout(()=>{
+            this.$router.push('/Play_music')
             this.ChildView=false;
           },1000)
 
