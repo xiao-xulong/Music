@@ -394,6 +394,7 @@
     }
 
     .child_view{
+      background-color: white;
       width: 100vw;
       position: absolute;
       top: 100vh;

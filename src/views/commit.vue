@@ -163,6 +163,7 @@ font-weight: 500;
    }
  }
     .commit_area{
+
       .users{
          margin-top: 15px;
 
