@@ -246,9 +246,12 @@
 </script>
 
 <style scoped lang="less">
+  @body_background:-webkit-linear-gradient(top,#8d9294,#0f1111);
+  @black_panel_background: #171717;
+ @Player_box-shadow: 0px 0px 10px #888888;
   .body{
     height: 100%;
-    background: -webkit-linear-gradient(top,#8d9294,#0f1111);
+    background:@body_background;
 
     article{
       height: 300/ 375* 100vw ;
@@ -264,7 +267,7 @@
         .black_panel{
           width: 220/ 375* 100vw;
           height: 220/ 375* 100vw;
-          background: #171717;
+          background:@black_panel_background;
           border-radius: 50%;
           position: relative;
           top: 50%;
@@ -289,7 +292,6 @@
     .songs_info{
       width: 100%;
       margin-top: 10px;
-
       text-align: center;
       .song_name{
         position: relative;
@@ -316,7 +318,7 @@
       text-align: center;
       line-height: 10vw;
       background: rgba(159,138,143,.3);
-      box-shadow: 0px 0px 10px #888888;
+      box-shadow:@Player_box-shadow;
       border-radius: 20px;
       .icons{
         flex: 2;
@@ -393,7 +395,6 @@
 
     .child_view{
       width: 100vw;
-      background-color: #ffffff;
       position: absolute;
       top: 100vh;
       overflow: scroll;

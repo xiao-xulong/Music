@@ -67,6 +67,9 @@
 </script>
 
 <style scoped lang="less">
+  @child_view_background-color:#ffffff;
+  @top_fix_background-color:#d43c33;
+  @download_background-color:white;
   header{
     position: fixed;
     width: 100%;
@@ -85,7 +88,7 @@ z-index: 1;
       height: 11vh;
       text-align: center;
       justify-content: space-between;
-      background-color:#d43c33;
+      background-color: @top_fix_background-color;
       .icon{
         flex: 0.4;
         width: 35%;
@@ -106,7 +109,7 @@ z-index: 1;
           position: relative;
           top: 50%;
           transform: translateY(-50%);
-          background-color: white;
+          background-color:@download_background-color;
           border-radius: 20px;
           color: red;
           text-align: center;
@@ -118,6 +121,6 @@ z-index: 1;
   .child_view{
     position: relative;
     top: 16vh;
-    background-color: #ffffff;
+    background-color: @child_view_background-color;
   }
 </style>

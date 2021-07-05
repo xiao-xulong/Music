@@ -113,8 +113,6 @@ import song_list from '../common/song_list'
     width: 96vw;
     border-radius: 21px;
     margin-left: 2vw;
-
-
   }
 
   .swiper_img{

@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-<keep-live>
+
     <router-view/>
-    </keep-live>
+
   </div>
 </template>
 

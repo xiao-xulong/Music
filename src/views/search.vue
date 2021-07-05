@@ -96,6 +96,7 @@
 </script>
 
 <style scoped lang="less">
+  @input_background-color:#ebecec;
   ::placeholder {
     color: #c9c9c9;
   }
@@ -123,7 +124,7 @@
       height: 30px;
       border-radius: 25px;
       border: none;
-      background-color: #ebecec;
+      background-color:@input_background-color;
       padding: 0 30px;
       position: relative;
       top: 50%;

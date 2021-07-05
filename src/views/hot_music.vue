@@ -90,6 +90,7 @@ this.hot_music_list=result.data.data.songs
 </script>
 
 <style scoped lang="less">
+  @rankingList_top_threeColor:#d43c33;
 header{
   width: 100vw;
   height: 24vh;
@@ -118,7 +119,7 @@ header{
       height: 10vh;
       &:nth-child(-n+3){
          .index{
-           color: #d43c33;
+           color: @rankingList_top_threeColor;
          }
       }
       .index{
