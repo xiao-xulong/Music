@@ -113,82 +113,87 @@
 </template>
 
 <script>
-  import {pics,url, PlayMusicInfo} from '../request/axios'
+import { pics, url, PlayMusicInfo } from '../request/axios'
 
 import song_list from '../common/song_list'
-  export default {
-    name: 'recommended',
-    components:{
-      // eslint-disable-next-line vue/no-unused-components
-      song_list
-    },
-    async created () {
-      window.sessionStorage.setItem('token','秦')
-      const res=(await pics()).data.data.songs
-      for (let i=0;i<res.length;i++){
-        this.songlist.push({id:res[i].id,name:res[i].name,pic:res[i].al.picUrl})
-      }
+export default {
+  name: 'recommended',
+  components: {
+    // eslint-disable-next-line vue/no-unused-components
+    song_list
+  },
+  async created() {
+    window.sessionStorage.setItem('token', '秦')
+    const res = (await pics()).data.data.songs
+    for (let i = 0; i < res.length; i++) {
+      this.songlist.push({ id: res[i].id, name: res[i].name, pic: res[i].al.picUrl })
+    }
 
-  // await this.$http.get('/api/koa').then(res=>{
-  //      console.log(res)
-  //    })
+    // await this.$http.get('/api/koa').then(res=>{
+    //      console.log(res)
+    //    })
 
-    },
-    data(){
-      return{
-        loadingShow:false,
-        images: [
-          "http://p1.music.126.net/Lp-lNUltTHzqCZDWHjvWmw==/109951166117920919.jpg",
-          "http://p1.music.126.net/8sHkl-AGYmGYVn4KMEKIrA==/109951166117945141.jpg",
-          "http://p1.music.126.net/BHqjbn0GrcWUhUw5TzOcsg==/109951166117854991.jpg",
-          "http://p1.music.126.net/55uEf8oxGCTiOK0GNaNpNA==/109951166118015740.jpg"
-        ],
-        songlist:[],
-        info:0,
-        new_musics:[
-          {id:1833866982,
-            songName:"无处话悲凉",
-            singer:'尹昔眠'
-          },
-          {id:1501715251,
-            songName:'难生恨',
-            singer:'DAWN'
-          },
-          {id:191254,
-            songName:'天下',
-            singer:'张杰'
-          },
-          {id:417859631,
-            songName:'我好像在哪见过你',
-            singer:'薛之谦'
-          },
-          {id:1494476822,
-            songName:'桃花一面',
-            singer:'国风无限'
-          },
-        ]
-      }
-    },
+  },
+  data() {
+    return {
+      loadingShow: false,
+      images: [
+        "http://p1.music.126.net/Lp-lNUltTHzqCZDWHjvWmw==/109951166117920919.jpg",
+        "http://p1.music.126.net/8sHkl-AGYmGYVn4KMEKIrA==/109951166117945141.jpg",
+        "http://p1.music.126.net/BHqjbn0GrcWUhUw5TzOcsg==/109951166117854991.jpg",
+        "http://p1.music.126.net/55uEf8oxGCTiOK0GNaNpNA==/109951166118015740.jpg"
+      ],
+      songlist: [],
+      info: 0,
+      new_musics: [
+        {
+          id: 1833866982,
+          songName: "无处话悲凉",
+          singer: '尹昔眠'
+        },
+        {
+          id: 1501715251,
+          songName: '难生恨',
+          singer: 'DAWN'
+        },
+        {
+          id: 191254,
+          songName: '天下',
+          singer: '张杰'
+        },
+        {
+          id: 417859631,
+          songName: '我好像在哪见过你',
+          singer: '薛之谦'
+        },
+        {
+          id: 1494476822,
+          songName: '桃花一面',
+          singer: '国风无限'
+        },
+      ]
+    }
+  },
 
 
-    methods:{
-     async play_music(id,name){
-      this. loadingShow=true
-        const info = (await PlayMusicInfo(id)).data.data
-console.log(info)
-const result = (await url(id)).data.data
-console.log(result)
-let pic = info.songs[0].al.picUrl
+  methods: {
+    async play_music(id, name) {
+      this.loadingShow = true
+      const info = (await PlayMusicInfo(id)).data.data
+      console.log(info)
+      const result = (await url(id)).data.data
+      console.log(result)
+      let pic = info.songs[0].al.picUrl
       let singer = info.songs[0].ar[0].name
       let songUrl = result.url
       let songname = name
-        this.$router.push({name:'Play_music',query:{id:id,pic:pic,singer:singer,songUrl:songUrl,songname:songname}})
-        this. loadingShow=false
-        // console.log(id,name)
-      },
+      this.$router.push({ name: 'Play_music', query: { id: id, pic: pic, singer: singer, songUrl: songUrl, songname: songname } })
+      this.loadingShow = false
+      // console.log(id,name)
+    },
 
-    }
   }
+}
 </script>
 
 <style scoped lang="less">
