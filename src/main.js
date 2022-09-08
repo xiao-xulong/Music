@@ -5,9 +5,12 @@ import store from './store'
 import './vant'
 import FastClick from 'fastclick'
 import VueLazyload from 'vue-lazyload'
-
-Vue.use(VueLazyload,{
-  loading:require('./assets/img/loading.jpeg')
+import axios from 'axios'
+import animate from "animate.css";
+Vue.use(animate)
+Vue.prototype.$http = axios
+Vue.use(VueLazyload, {
+  loading: require('./assets/img/loading.jpeg')
 })
 Vue.config.productionTip = false
 FastClick.attach(document.body)

@@ -4,6 +4,7 @@ let api=axios.create(
     baseURL:'https://v2.alapi.cn/api',
     timeout:3000
   })
+
 let pics=function(){
 return  api.get('/music/detail',{params:{'id':'1464168586,1397345903,1494738691,1426959223,1433584979,1338711251 ',
     'token':'pG70XSoRwSkGQPQm'
