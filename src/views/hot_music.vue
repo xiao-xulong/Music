@@ -41,7 +41,7 @@
 import { hot_music } from '../request/axios'
 
 export default {
-  name: 'hot_music',
+  name: 'Hot_music',
   async created() {
     let date = new Date()
     this.mouth = date.getMonth()

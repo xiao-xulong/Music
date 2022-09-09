@@ -117,12 +117,13 @@ import { pics, url, PlayMusicInfo } from '../request/axios'
 
 import song_list from '../common/song_list'
 export default {
-  name: 'recommended',
+  name: 'Rcommended',
   components: {
     // eslint-disable-next-line vue/no-unused-components
     song_list
   },
   async created() {
+    console.log('home')
     window.sessionStorage.setItem('token', '秦')
     const res = (await pics()).data.data.songs
     for (let i = 0; i < res.length; i++) {

@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <keep-alive include="recommended,hot_music">
-      <router-view />
-    </keep-alive>
+
+    <router-view />
+
   </div>
 </template>
 
